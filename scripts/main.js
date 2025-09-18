@@ -1,9 +1,14 @@
 // Theme management
 class ThemeManager {
     constructor() {
-        this.currentTheme = this.getStoredTheme() || 'light';
+        this.currentTheme = this.getStoredTheme() || this.getSystemTheme();
         this.initializeTheme();
         this.bindEvents();
+        this.watchSystemTheme();
+    }
+
+    getSystemTheme() {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
     }
 
     getStoredTheme() {
@@ -28,7 +33,7 @@ class ThemeManager {
     }
 
     setTheme(theme) {
-        if (['light', 'dark', 'contrast-light', 'contrast-dark'].includes(theme)) {
+        if (['light', 'dark'].includes(theme)) {
             this.currentTheme = theme;
             document.body.setAttribute('data-theme', theme);
             this.setStoredTheme(theme);
@@ -45,15 +50,25 @@ class ThemeManager {
         // Add active class to current theme button
         const themeMap = {
             'light': 'lightMode',
-            'dark': 'darkMode',
-            'contrast-light': 'contrastLightMode',
-            'contrast-dark': 'contrastDarkMode'
+            'dark': 'darkMode'
         };
 
         const activeButton = document.getElementById(themeMap[this.currentTheme]);
         if (activeButton) {
             activeButton.classList.add('active');
         }
+    }
+
+    watchSystemTheme() {
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        mediaQuery.addEventListener('change', (e) => {
+            // Only update if user hasn't manually set a preference
+            if (!this.getStoredTheme()) {
+                this.currentTheme = e.matches ? 'dark' : 'light';
+                document.body.setAttribute('data-theme', this.currentTheme);
+                this.updateActiveButton();
+            }
+        });
     }
 
     bindEvents() {
@@ -63,14 +78,6 @@ class ThemeManager {
 
         document.getElementById('darkMode')?.addEventListener('click', () => {
             this.setTheme('dark');
-        });
-
-        document.getElementById('contrastLightMode')?.addEventListener('click', () => {
-            this.setTheme('contrast-light');
-        });
-
-        document.getElementById('contrastDarkMode')?.addEventListener('click', () => {
-            this.setTheme('contrast-dark');
         });
     }
 }
@@ -133,7 +140,7 @@ class ServicesManager {
             'Bee': 'Basil can help you!',
             'Onyx': 'Onyx can help you!',
             'General': 'We can help you!',
-            'Searching': "We're searching for"
+            'Searching': "We're searching for this!"
         };
         return messageMap[category] || 'We can help you!';
     }
@@ -216,36 +223,50 @@ class ServicesManager {
         }
 
         const fragment = document.createDocumentFragment();
-        const allServices = [];
+        const mainServices = [];
+        const searchingServices = [];
 
-        // Collect all services with their categories
+        // Separate services into main services and searching services
         Object.entries(this.services).forEach(([category, serviceList]) => {
             if (Array.isArray(serviceList)) {
                 serviceList.forEach(service => {
-                    allServices.push({ service, category });
+                    if (category === 'Searching') {
+                        searchingServices.push({ service, category });
+                    } else {
+                        mainServices.push({ service, category });
+                    }
                 });
             }
         });
 
-        // Sort services alphabetically by name, but keep Searching category at the bottom
-        allServices.sort((a, b) => {
-            // If one is from Searching category, prioritize it for bottom placement
-            if (a.category === 'Searching' && b.category !== 'Searching') {
-                return 1; // a goes after b
-            }
-            if (b.category === 'Searching' && a.category !== 'Searching') {
-                return -1; // a goes before b
-            }
-            
-            // For non-Searching services, sort alphabetically by service name
-            return a.service.name.localeCompare(b.service.name);
-        });
+        // Sort main services alphabetically by name
+        mainServices.sort((a, b) => a.service.name.localeCompare(b.service.name));
 
-        // Create and append cards in sorted order
-        allServices.forEach(({ service, category }) => {
+        // Sort searching services alphabetically by name
+        searchingServices.sort((a, b) => a.service.name.localeCompare(b.service.name));
+
+        // Create main services section
+        mainServices.forEach(({ service, category }) => {
             const card = this.createServiceCard(service, category);
             fragment.appendChild(card);
         });
+
+        // Add section break if there are searching services
+        if (searchingServices.length > 0) {
+            const sectionBreak = document.createElement('div');
+            sectionBreak.className = 'section-break';
+            sectionBreak.innerHTML = `
+                <div class="section-divider"></div>
+                <h2 class="section-heading">Things we're looking for:</h2>
+            `;
+            fragment.appendChild(sectionBreak);
+
+            // Create searching services section
+            searchingServices.forEach(({ service, category }) => {
+                const card = this.createServiceCard(service, category);
+                fragment.appendChild(card);
+            });
+        }
 
         this.servicesGrid.appendChild(fragment);
         

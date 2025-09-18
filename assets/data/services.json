@@ -1,18 +1,18 @@
 {
     "Bee": [
       {
-        "name": "Bike maintenance/repair",
+        "name": "Bike maintenance & repair",
         "description": "I can give you a tune-up and do most of the repairs you'll need to keep your bike running smoothly.",
         "img": "/assets/img/undraw_ride-a-bicycle_oozn.svg"
       },
       {
-        "name": "Bread",
-        "description": "Fresh, homemade bread baked with only 4 ingredients: flour, water, salt, and yeast. I can add rosemary or other herbs to the bread for extra flaver if you want.",
+        "name": "Fresh Bread",
+        "description": "Fresh, homemade bread baked with only 4 ingredients: flour, water, salt, and yeast. I can add rosemary or other herbs to the bread for extra flavor if you want.",
         "img": "/assets/img/undraw_cooking_j2pu.svg"
       },
       {
-        "name": "Websites",
-        "description": "I can build you a fully customwebsite for your business or personal use. I can also help you with your website if you already have one, and I can help you get off or move off of a platform like Wix or Squarespace if you want to save some money",
+        "name": "Custom Websites",
+        "description": "I can build you a fully custom website for your business or personal use. I can also help you with your website if you already have one, and I can help you move off of a platform like Wix or Squarespace if you want to save some money.",
         "img": "/assets/img/undraw_web-development_0wdh.svg"
       },
       {
@@ -31,20 +31,20 @@
         "img": "/assets/img/undraw_engineering-team_13ax.svg"
       },
       {
-        "name": "Resume / job app assistance",
+        "name": "Resume & Job Application Assistance",
         "description": "I can help you with your resume and walk you through the whole job application process to help you try and land your dream job, whether you have a resume already or not.",
         "img": "/assets/img/undraw_job-offers_55y0.svg"
       },
       {
-        "name": "Poetry",
+        "name": "Custom Poetry",
         "description": "Let me write you a poem for your special occasion. I can write a poem for your birthday, anniversary, graduation, or any other special occasion. Any prompt you give me, I will write a poem for you.",
         "img": "/assets/img/undraw_typewriter_d4km.svg"
       }
     ],
     "Onyx": [
       {
-        "name": "Pole class",
-        "description": "Fun and empowering pole fitness classes for all skill, size, and ability levels in a supportive and ecouraging environment.",
+        "name": "Pole Class",
+        "description": "Fun and empowering pole fitness classes for all skill, size, and ability levels in a supportive and encouraging environment.",
         "img": "/assets/img/undraw_fitness-influencer-avatar_04j0.svg"
       },
       {
@@ -54,7 +54,7 @@
         "sub_items": [
           {
             "name": "Chili oil",
-            "description": "Spicy homemade chili oil perfect for adding deapth and heat to any dish.",
+            "description": "Spicy homemade chili oil perfect for adding depth and heat to any dish.",
             "img": ""
           },
           {
@@ -106,7 +106,7 @@
       },
       {
         "name": "Help applying for assistance programs",
-        "description": "Navigating and completing applications for various assistance programs and benefits. I can help you navigate the process of applying for disability, food stamps, medicaid, electric bike rebateprogram, etc",
+        "description": "Navigating and completing applications for various assistance programs and benefits. I can help you navigate the process of applying for disability, food stamps, Medicaid, electric bike rebate program, etc.",
         "img": "/assets/img/undraw_email-consent_j36b.svg"
       },
       {
@@ -128,7 +128,7 @@
     "General": [
       {
         "name": "Catsitting",
-        "description": "Reliable and loving cat care services while you're away from home. We care alot about cats and we want to make sure they are happy and healthy while you're away.",
+        "description": "Reliable and loving cat care services while you're away from home. We care a lot about cats and we want to make sure they are happy and healthy while you're away.",
         "img": "/assets/img/undraw_friends_xscy.svg"
       },
       {
@@ -140,7 +140,7 @@
     "Searching": [
       {
         "name": "Catsitting",
-        "description": "We're always looking for people to take care of our cats when we're away. We want to make sure are going to be well taken care of and happy and healthy while we're away.",
+        "description": "We're always looking for people to take care of our cats when we're away. We want to make sure they are going to be well taken care of and happy and healthy while we're away.",
         "img": "/assets/img/undraw_cat_lqdj.svg"
       },
       {
