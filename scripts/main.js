@@ -149,6 +149,11 @@ class ServicesManager {
         const card = document.createElement('div');
         card.className = 'service-card';
         
+        // Add has-dropdown class if service has sub-items
+        if (service.sub_items && service.sub_items.length > 0) {
+            card.classList.add('has-dropdown');
+        }
+        
         const providerImage = this.getProviderImage(category);
         const providerName = this.getProviderName(category);
         const providerMessage = this.getProviderMessage(category);
@@ -182,17 +187,24 @@ class ServicesManager {
             return '';
         }
 
+        const dropdownId = this.generateId();
         const options = service.sub_items.map(item => 
             `<option value="${this.escapeHtml(item.name)}">${this.escapeHtml(item.name)}</option>`
         ).join('');
 
         return `
             <div class="sub-items-dropdown">
-                <label for="subItems_${this.generateId()}" class="dropdown-label">Choose a type:</label>
-                <select id="subItems_${this.generateId()}" class="dropdown-select">
+                <label for="subItems_${dropdownId}" class="dropdown-label">Choose a type:</label>
+                <select id="subItems_${dropdownId}" class="dropdown-select" data-dropdown-id="${dropdownId}">
                     <option value="">Select an option...</option>
                     ${options}
                 </select>
+                <div class="sub-item-drawer" id="drawer_${dropdownId}" style="display: none;">
+                    <div class="sub-item-content">
+                        <h4 class="sub-item-title"></h4>
+                        <p class="sub-item-description"></p>
+                    </div>
+                </div>
             </div>
         `;
     }
@@ -272,6 +284,9 @@ class ServicesManager {
         
         // Add click handlers for provider bubbles
         this.addProviderBubbleHandlers();
+        
+        // Add dropdown handlers for sub-items
+        this.addDropdownHandlers();
     }
 
     showEmptyState() {
@@ -349,6 +364,68 @@ class ServicesManager {
         setTimeout(() => {
             message.classList.remove('flow-in');
         }, 400);
+    }
+
+    addDropdownHandlers() {
+        const dropdowns = document.querySelectorAll('.dropdown-select[data-dropdown-id]');
+        
+        dropdowns.forEach(dropdown => {
+            dropdown.addEventListener('change', (e) => {
+                const dropdownId = e.target.getAttribute('data-dropdown-id');
+                const drawer = document.getElementById(`drawer_${dropdownId}`);
+                const selectedValue = e.target.value;
+                
+                if (!drawer) return;
+                
+                // Find the selected sub-item data
+                const serviceCard = e.target.closest('.service-card');
+                const serviceName = serviceCard.querySelector('.service-card-title').textContent;
+                
+                // Find the service data to get sub-items
+                let selectedSubItem = null;
+                Object.entries(this.services).forEach(([category, serviceList]) => {
+                    if (Array.isArray(serviceList)) {
+                        serviceList.forEach(service => {
+                            if (service.name === serviceName && service.sub_items) {
+                                selectedSubItem = service.sub_items.find(item => item.name === selectedValue);
+                            }
+                        });
+                    }
+                });
+                
+                if (selectedValue && selectedSubItem) {
+                    // Update drawer content
+                    const title = drawer.querySelector('.sub-item-title');
+                    const description = drawer.querySelector('.sub-item-description');
+                    
+                    title.textContent = selectedSubItem.name;
+                    description.textContent = selectedSubItem.description;
+                    
+                    // Show drawer with animation
+                    this.showDrawer(drawer);
+                } else {
+                    // Hide drawer
+                    this.hideDrawer(drawer);
+                }
+            });
+        });
+    }
+
+    showDrawer(drawer) {
+        drawer.style.display = 'block';
+        // Force reflow
+        drawer.offsetHeight;
+        drawer.classList.add('drawer-open');
+    }
+
+    hideDrawer(drawer) {
+        drawer.classList.remove('drawer-open');
+        drawer.classList.add('drawer-closing');
+        
+        setTimeout(() => {
+            drawer.classList.remove('drawer-closing');
+            drawer.style.display = 'none';
+        }, 300); // Match CSS transition duration
     }
 
     hideLoading() {

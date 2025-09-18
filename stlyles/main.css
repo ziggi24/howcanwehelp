@@ -106,7 +106,7 @@ body {
     padding: var(--space-lg) 0;
     position: sticky;
     top: 0;
-    z-index: 100;
+    z-index: 150;
     backdrop-filter: blur(10px);
     transition: all var(--transition-normal);
 }
@@ -218,7 +218,7 @@ body {
 .service-card {
     background-color: var(--bg-card);
     border-radius: var(--radius-2xl);
-    overflow: hidden;
+    overflow: hidden; /* Restore hidden overflow for rounded corners */
     box-shadow: 0 6px 25px var(--shadow-light), 0 12px 50px rgba(0, 0, 0, 0.15),
         0 24px 100px rgba(0, 0, 0, 0.08);
     border: 1px solid var(--border-color);
@@ -374,6 +374,8 @@ body {
 /* Dropdown for sub-items */
 .sub-items-dropdown {
     margin-top: var(--space-md);
+    position: relative;
+    z-index: 15;
 }
 
 .dropdown-label {
@@ -395,6 +397,16 @@ body {
     font-family: inherit;
     cursor: pointer;
     transition: all var(--transition-fast);
+    position: relative;
+    z-index: 20;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right var(--space-md) center;
+    background-size: 16px;
+    padding-right: calc(var(--space-md) + 24px);
 }
 
 .dropdown-select:focus {
@@ -405,6 +417,50 @@ body {
 
 .dropdown-select:hover {
     border-color: var(--primary-color);
+}
+
+/* Sub-item drawer */
+.sub-item-drawer {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    background-color: var(--bg-secondary);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+    margin-top: calc(
+        -1 * var(--space-md)
+    ); /* Extend upward to overlap dropdown */
+    position: relative;
+    z-index: 1; /* Behind the dropdown */
+}
+
+.sub-item-drawer.drawer-open {
+    max-height: 200px; /* Adjust based on content */
+}
+
+.sub-item-drawer.drawer-closing {
+    max-height: 0;
+}
+
+.sub-item-content {
+    padding: var(--space-lg);
+    padding-top: calc(
+        var(--space-lg) + var(--space-md)
+    ); /* Extra padding to account for overlap */
+    border-top: 1px solid var(--border-color);
+}
+
+.sub-item-title {
+    font-size: var(--font-size-lg);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 var(--space-sm) 0;
+}
+
+.sub-item-description {
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
 }
 
 /* Loading */
@@ -458,6 +514,34 @@ body {
     font-size: var(--font-size-2xl);
     margin-bottom: var(--space-md);
     color: var(--text-primary);
+}
+
+/* Mobile-specific dropdown fixes */
+@media (max-width: 480px) {
+    .dropdown-select {
+        font-size: 16px; /* Prevents zoom on iOS */
+        min-height: 44px; /* Ensures touch target is large enough */
+        position: relative;
+        z-index: 100;
+    }
+
+    .sub-items-dropdown {
+        position: relative;
+        z-index: 100;
+        isolation: isolate; /* Creates new stacking context */
+    }
+
+    /* Allow dropdown to extend beyond card on mobile only */
+    .service-card.has-dropdown {
+        overflow: visible;
+    }
+
+    /* Ensure dropdown options are properly positioned */
+    .dropdown-select option {
+        background-color: var(--bg-secondary);
+        color: var(--text-primary);
+        padding: var(--space-sm);
+    }
 }
 
 /* Responsive design */
