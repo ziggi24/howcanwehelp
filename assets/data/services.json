@@ -1,0 +1,157 @@
+{
+    "Bee": [
+      {
+        "name": "Bike maintenance/repair",
+        "description": "I can give you a tune-up and do most of the repairs you'll need to keep your bike running smoothly.",
+        "img": "/assets/img/undraw_ride-a-bicycle_oozn.svg"
+      },
+      {
+        "name": "Bread",
+        "description": "Fresh, homemade bread baked with only 4 ingredients: flour, water, salt, and yeast. I can add rosemary or other herbs to the bread for extra flaver if you want.",
+        "img": "/assets/img/undraw_cooking_j2pu.svg"
+      },
+      {
+        "name": "Websites",
+        "description": "I can build you a fully customwebsite for your business or personal use. I can also help you with your website if you already have one, and I can help you get off or move off of a platform like Wix or Squarespace if you want to save some money",
+        "img": "/assets/img/undraw_web-development_0wdh.svg"
+      },
+      {
+        "name": "Speaking German in conversation",
+        "description": "I am a B2 level German speaker and I've lived in Germany for about 10 years growing up. Reden Sie mit mir!",
+        "img": "/assets/img/undraw_conversation_15p8.svg"
+      },
+      {
+        "name": "Handmade soap for sensitive skin",
+        "description": "Gentle, handmade soaps crafted with only 5 ingredients: Olive Oil, Coconut Oil, Water, Lye, and a small amount of Orange essential oil for scent. Vegan, handmade, and made with love.",
+        "img": "/assets/img/undraw_wash-hands_ydq5.svg"
+      },
+      {
+        "name": "Tech support",
+        "description": "I'm pretty good at fixing most tech problems you might encounter. I can help you with your computer, phone, or any other device that needs a little help.",
+        "img": "/assets/img/undraw_engineering-team_13ax.svg"
+      },
+      {
+        "name": "Resume / job app assistance",
+        "description": "I can help you with your resume and walk you through the whole job application process to help you try and land your dream job, whether you have a resume already or not.",
+        "img": "/assets/img/undraw_job-offers_55y0.svg"
+      },
+      {
+        "name": "Poetry",
+        "description": "Let me write you a poem for your special occasion. I can write a poem for your birthday, anniversary, graduation, or any other special occasion. Any prompt you give me, I will write a poem for you.",
+        "img": "/assets/img/undraw_typewriter_d4km.svg"
+      }
+    ],
+    "Onyx": [
+      {
+        "name": "Pole class",
+        "description": "Fun and empowering pole fitness classes for all skill, size, and ability levels in a supportive and ecouraging environment.",
+        "img": "/assets/img/undraw_fitness-influencer-avatar_04j0.svg"
+      },
+      {
+        "name": "Vegan food",
+        "description": "Delicious homemade vegan meals and treats made with fresh, plant-based ingredients.",
+        "img": "/assets/img/undraw_eating-together_4cna.svg",
+        "sub_items": [
+          {
+            "name": "Chili oil",
+            "description": "Spicy homemade chili oil perfect for adding deapth and heat to any dish.",
+            "img": ""
+          },
+          {
+            "name": "Chili",
+            "description": "Hearty and delicious vegan chili packed with beans, vegetables, and bold flavors.",
+            "img": ""
+          },
+          {
+            "name": "Pesto",
+            "description": "Fresh basil pesto made with a variety of nuts, herbs, vegetable greens and olive oil.",
+            "img": ""
+          },
+          {
+            "name": "Daal",
+            "description": "Traditional Indian lentil curry that's both nutritious and comforting.",
+            "img": ""
+          },
+          {
+            "name": "Peanut butter",
+            "description": "Creamy homemade peanut butter made from roasted Virginia peanuts.",
+            "img": ""
+          },
+          {
+            "name": "Ice cream",
+            "description": "Rich and creamy dairy-free ice cream in various delicious flavors.",
+            "img": ""
+          },
+          {
+            "name": "Hummus",
+            "description": "Hands down the best hummus you'll ever taste.",
+            "img": ""
+          },
+          {
+            "name": "Tofu ricotta",
+            "description": "Plant-based ricotta alternative.",
+            "img": ""
+          }
+        ]
+      },
+      {
+        "name": "Space organization, decluttering, packing",
+        "description": "I can help you declutter, organize, and pack your spaces efficiently, so you can have a more peaceful and organized home.",
+        "img": "/assets/img/undraw_clean-up_af4s.svg"
+      },
+      {
+        "name": "Planning, spreadsheets, budgeting",
+        "description": "I can offer all kinds of assistance with project planning, spreadsheet creation, and budget management.",
+        "img": "/assets/img/undraw_spreadsheet_uj8z.svg"
+      },
+      {
+        "name": "Help applying for assistance programs",
+        "description": "Navigating and completing applications for various assistance programs and benefits. I can help you navigate the process of applying for disability, food stamps, medicaid, electric bike rebateprogram, etc",
+        "img": "/assets/img/undraw_email-consent_j36b.svg"
+      },
+      {
+        "name": "Hula hooping lesson",
+        "description": "Fun and energetic hula hooping lessons for fitness and entertainment. I can teach you the basics of hula hooping in a fun and engaging way.",
+        "img": "/assets/img/undraw_workout_wqgp.svg"
+      },
+      {
+        "name": "Body painting shoot or lesson",
+        "description": "Check out my instagram to see some of my work, I've collaborated with a lot of different artists and models, and have worked with many styles and body types. Let's do a creative body painting sessions and photoshoot.",
+        "img": "/assets/img/undraw_making-art_c05m.svg"
+      },
+      {
+        "name": "Art prints",
+        "description": "Beautiful art prints and creative works available for purchase. I have a lot of art prints available for purchase, and I can also help you create a custom art print for your home or office.",
+        "img": "/assets/img/undraw_art-museum_pqfw.svg"
+      }
+    ],
+    "General": [
+      {
+        "name": "Catsitting",
+        "description": "Reliable and loving cat care services while you're away from home. We care alot about cats and we want to make sure they are happy and healthy while you're away.",
+        "img": "/assets/img/undraw_friends_xscy.svg"
+      },
+      {
+        "name": "Covid tests",
+        "description": "We have a large stockpile of covid tests, and we can help you get tested if you need to. Let us know if you need some covid tests and we'll get them to you.",
+        "img": "/assets/img/undraw_scientist_5td0.svg"
+      }
+    ],
+    "Searching": [
+      {
+        "name": "Catsitting",
+        "description": "We're always looking for people to take care of our cats when we're away. We want to make sure are going to be well taken care of and happy and healthy while we're away.",
+        "img": "/assets/img/undraw_cat_lqdj.svg"
+      },
+      {
+        "name": "Art by queers",
+        "description": "Seeking artwork and creative pieces by queer artists. We have a lot of art in our home and we're always looking for more, especially if it's by queer artists.",
+        "img": "/assets/img/undraw_artist_7bs7.svg"
+      },
+      {
+        "name": "Fitness training",
+        "description": "Looking for a personal trainer to help me reach my fitness goals. We are big into fitness and we want to find some people who want to train and get fit together. ",
+        "img": "/assets/img/undraw_personal-training_1s0k.svg"
+      }
+    ]
+  }

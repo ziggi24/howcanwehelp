@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How Can We Help?</title>
+    <meta name="description" content="A comprehensive list of services and help we offer to our community">
+    <link rel="stylesheet" href="stlyles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mogra&display=swap" rel="stylesheet">
+</head>
+<body data-theme="light">
+    <header class="header">
+        <div class="container">
+            <h1 class="main-title">How can we help?</h1>
+            <div class="theme-controls">
+                <button class="theme-btn" id="lightMode" aria-label="Light mode">
+                    <span class="theme-icon">☀️</span>
+                </button>
+                <button class="theme-btn" id="darkMode" aria-label="Dark mode">
+                    <span class="theme-icon">🌙</span>
+                </button>
+
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="services-section">
+                <div class="services-grid" id="servicesGrid">
+                    <!-- Services will be loaded here by JavaScript -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div class="loading" id="loading">
+        <div class="loading-spinner"></div>
+        <p>Loading services...</p>
+    </div>
+
+    <script src="scripts/main.js"></script>
+</body>
+</html>
